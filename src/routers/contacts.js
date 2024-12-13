@@ -32,7 +32,6 @@ router.patch(
 router.delete(
   '/contacts/:contactId',
   isValidId,
-  validateBody(createContactSchema),
   ctrlWrapper(deleteContactController),
 );
 
