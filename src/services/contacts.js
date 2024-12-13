@@ -4,7 +4,7 @@ import { SORT_ORDER } from '../constants/index.js';
 
 export const getAllContacts = async ({
   page = 1,
-  perPage = 10,
+  perPage = 5,
   sortOrder = SORT_ORDER.ASC,
   sortBy = 'name',
   filter = {},

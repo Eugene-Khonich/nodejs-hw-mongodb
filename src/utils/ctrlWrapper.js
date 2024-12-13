@@ -4,6 +4,7 @@ export const ctrlWrapper = (controller) => {
       await controller(req, res, next);
     } catch (err) {
       next(err);
+      console.error('Error details:', err);
     }
   };
 };

@@ -5,7 +5,7 @@ const parseSortOrder = (sortOrder) => {
   if (isKnownOrder) {
     return sortOrder;
   }
-  return SORT_ORDER;
+  return SORT_ORDER.ASC;
 };
 
 const parseSortBy = (sortBy) => {
