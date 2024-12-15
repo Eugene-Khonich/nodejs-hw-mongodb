@@ -16,10 +16,7 @@ export const postContactSchema = Joi.object({
     'any.required': 'Phone number is required',
   }),
   email: Joi.string().min(3).max(20),
-  isFavourite: Joi.boolean().required().messages({
-    'any.required': 'Is favourite field required',
-    'boolean.base': 'Field must be a boolean value (true or false)',
-  }),
+  isFavourite: Joi.boolean(),
   contactType: Joi.string()
     .valid('work', 'home', 'personal')
     .required()
