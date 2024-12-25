@@ -8,8 +8,7 @@ export const authenticate = async (req, res, next) => {
     next(createHttpError(401, 'Please provide Authorization header'));
     return;
   }
-  const bearer = authHeader.split(' ')[0];
-  const token = authHeader.split(' ')[0];
+  const [bearer, token] = authHeader.split(' ');
   if (bearer !== 'Bearer' || !token) {
     next(createHttpError(401, 'Auth header should be of type Bearer'));
     return;
@@ -24,7 +23,7 @@ export const authenticate = async (req, res, next) => {
   if (isAccessTokenExpired) {
     next(createHttpError(410, 'Access token expired'));
   }
-  const user = await User.findById(session.usesrId);
+  const user = await User.findById(session.userId);
   if (!user) {
     next(createHttpError(401));
     return;

@@ -23,13 +23,15 @@ export const loginUser = async (payload) => {
   await Session.deleteOne({ userId: user._id });
   const accessToken = randomBytes(30).toString('base64');
   const refreshToken = randomBytes(30).toString('base64');
-  return await Session.create({
+  const newSession = await Session.create({
     userId: user._id,
     accessToken,
     refreshToken,
     accessTokenValidUntil: new Date(Date.now() + FIFTEEN_MINUTES),
     refreshTokenValidUntil: new Date(Date.now() + ONE_DAY),
   });
+  console.log('Session created:', newSession);
+  return newSession;
 };
 
 const createSession = () => {
