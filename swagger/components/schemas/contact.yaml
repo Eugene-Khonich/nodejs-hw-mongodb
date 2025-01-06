@@ -1,0 +1,42 @@
+type: object
+required:
+  - _id
+  - name
+  - phoneNumber
+  - isFavorite
+  - contactType
+  - userId
+properties:
+  _id:
+    description: 'Unique ID of contact'
+    type: string
+    example: 5f64a2b4d6f3b4b4b4b4b4b4
+  name:
+    description: 'Name of contact'
+    type: string
+    example: 'John Doe'
+  email:
+    description: 'Email of contact'
+    type: string
+    example: 'johndoe@email.com'
+  phoneNumber:
+    description: 'Phone number of contact'
+    type: string
+    example: +380501234567
+  isFavorite:
+    description: 'Is contact favorite'
+    type: boolean
+    example: true
+  contactType:
+    description: 'Type of contact'
+    type: string
+    example: personal
+    enum: ['work', 'personal', 'home']
+  userId:
+    description: 'Unique ID of user who create contact'
+    type: string
+    example: 5f64a2b4d6f3b4b4b4b4b4b4
+  photo:
+    description: 'Photo of contact'
+    type: string
+    example: 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'

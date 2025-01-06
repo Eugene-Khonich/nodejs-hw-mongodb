@@ -1,0 +1,7 @@
+tags:
+  - Contacts
+summary: Update contact by id
+operationId: updateContactById
+description: 'Update one contact by its unique ID'
+security:
+  - bearerAuth: []
