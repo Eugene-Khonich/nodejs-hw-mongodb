@@ -31,7 +31,7 @@ requestBody:
           phoneNumber:
             description: 'Phone number of the contact'
             type: string
-            example: '+380961234567'
+            example: '380961234567'
           isFavorite:
             description: 'Is contact favorite'
             type: boolean

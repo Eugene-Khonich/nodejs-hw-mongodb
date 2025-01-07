@@ -22,7 +22,7 @@ requestBody:
           phoneNumber:
             description: 'Contact phone number'
             type: string
-            example: '+380961234567'
+            example: '380961234567'
           email:
             description: 'Contact email'
             type: string
