@@ -86,7 +86,6 @@ export const patchContactController = async (req, res, next) => {
     { ...req.body, photo: photoUrl },
     req.user._id,
   );
-  console.log('Update Result:', result);
   if (!result) {
     throw createHttpError(404, 'Contact not found');
   }
