@@ -13,7 +13,7 @@ content:
           example: 404
         message:
           type: string
-          example: '404 Not Found'
+          example: 'Not Found'
         data:
           type: object
           required:

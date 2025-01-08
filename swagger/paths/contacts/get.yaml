@@ -5,53 +5,44 @@ operationId: getAllContacts
 description: 'Get list of all contacts with pagination and filtering'
 security:
   - bearerAuth: []
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          contactType:
+            type: string
+            enum: ['personal', 'home', 'work']
+            description: 'Filter by contact type'
+          isFavorite:
+            type: boolean
+            description: 'Filter by favorite contacts'
 parameters:
   - in: query
     name: page
     schema:
       type: integer
-    example: 1
-    description: 'Page number. Default value - 1'
+      default: 1
+    description: 'Page number'
   - in: query
     name: perPage
     schema:
       type: integer
-      example: 5
-      description: 'Number of items per page. Default value - 5'
+      default: 5
+      description: 'Number of items per page.'
   - in: query
     name: sortBy
     schema:
       type: string
-      example: 'name'
-    description: 'All contact fields can be mentioned. Default value - name'
+      default: 'name'
+    description: 'All contact fields can be mentioned.'
   - in: query
     name: sortOrder
     schema:
       type: string
       enum: ['asc', 'desc']
-      example: 'asc'
-      description: 'asc or desc. Default value - asc'
-  - in: query
-    name: contactType
-    schema:
-      type: string
-      enum: ['work', 'home', 'personal']
-      example: home
-  - in: query
-    name: name
-    schema:
-      type: string
-      example: 'John Doe'
-  - in: query
-    name: email
-    schema:
-      type: string
-      example: 'johndoe@email.com'
-  - in: query
-    name: phoneNumber
-    schema:
-      type: string
-      example: '+380961234567'
+      default: 'asc'
 responses:
   '200':
     description: Successfully found Contacts!
@@ -88,20 +79,28 @@ responses:
                 page:
                   type: number
                   example: 1
+                  description: 'Current page number'
                 perPage:
                   type: number
                   example: 5
+                  description: 'Number of items per page'
                 totalItems:
                   type: number
                   example: 20
+                  description: 'Total number of items'
                 totalPages:
                   type: number
                   example: 4
+                  description: 'Total number of pages'
                 hasNextPage:
                   type: boolean
                   example: true
+                  description: 'Is there a next page'
                 hasPreviousPage:
                   type: boolean
                   example: false
+                  description: 'Is there a previous page'
+  '401':
+    $ref: '../../components/responses/401.yaml'
   '404':
     $ref: '../../components/responses/404.yaml'
