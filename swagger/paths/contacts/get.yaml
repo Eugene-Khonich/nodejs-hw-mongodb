@@ -30,7 +30,7 @@ parameters:
     schema:
       type: integer
       default: 5
-      description: 'Number of items per page.'
+    description: 'Number of items per page.'
   - in: query
     name: sortBy
     schema:
