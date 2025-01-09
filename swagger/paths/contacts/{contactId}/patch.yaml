@@ -32,7 +32,7 @@ requestBody:
             description: 'Phone number of the contact'
             type: string
             example: '380961234567'
-          isFavorite:
+          isFavourite:
             description: 'Is contact favorite'
             type: boolean
             example: true
