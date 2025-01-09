@@ -11,10 +11,10 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
+      "url": "https://nodejs-hw-mongodb-final.onrender.com"
     },
     {
-      "url": "https://nodejs-hw-mongodb-final.onrender.com"
+      "url": "http://localhost:3000"
     }
   ],
   "tags": [
@@ -210,7 +210,9 @@
                 "type": "object",
                 "required": [
                   "name",
-                  "phoneNumber"
+                  "phoneNumber",
+                  "isFavourite",
+                  "contactType"
                 ],
                 "properties": {
                   "name": {
@@ -228,7 +230,7 @@
                     "type": "string",
                     "example": "johndoe@email.com"
                   },
-                  "isFavorite": {
+                  "isFavourite": {
                     "description": "Contact is favorite",
                     "type": "boolean",
                     "example": true
@@ -410,7 +412,7 @@
                     "type": "string",
                     "example": "380961234567"
                   },
-                  "isFavorite": {
+                  "isFavourite": {
                     "description": "Is contact favorite",
                     "type": "boolean",
                     "example": true
@@ -506,28 +508,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Contact deleted",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": [
-                    "status",
-                    "message"
-                  ],
-                  "properties": {
-                    "status": {
-                      "type": "integer",
-                      "example": 204
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Successfully delete a contact!"
-                    }
-                  }
-                }
-              }
-            }
+            "description": "No content - Contact succefully deleted"
           },
           "400": {
             "$ref": "#/components/responses/400"
